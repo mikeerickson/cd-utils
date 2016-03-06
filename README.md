@@ -6,7 +6,7 @@ Node Utils
 Install `cd-utils` as a development dependency to your project (plugin should be installed for each project)
 
 ```shell
-npm install --save-dev cd-utils
+npm install --D cd-utils
 ```
 
 
@@ -15,8 +15,9 @@ npm install --save-dev cd-utils
 After you have installed plugin, you can access like any standard node module
 
 ```javascript
-var utils = require('cd-utils');
+var utils = require('cd-utils')();
 ```
+**Note: When reuqiring `cd-utils` you must include the addition parens to execute internal function
 
 ## API
 
