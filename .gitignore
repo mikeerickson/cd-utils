@@ -3,3 +3,8 @@
 .idea/workspace.xml
 /.idea/
 .readme.md.swp
+gulpfile.js
+/tasks/
+/_disabled/
+/tasks/_disabled/
+/utils/

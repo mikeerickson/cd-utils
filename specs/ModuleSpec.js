@@ -4,7 +4,7 @@
 /*global require*/
 
 var chai  = require('chai');
-var utils = require('../index');
+var utils = require('../cd-utils');
 
 var expect  = chai.expect;
 var should = chai.should();
