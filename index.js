@@ -11,10 +11,13 @@
   var notify    = require('gulp-notify');
   var moment    = require('moment');
   var paramsObj = require('yargs').argv;
-  
+
   var is_js     = require('is_js');
   var chalkline = require('chalkline');
   var chalk     = require('chalk');
+
+  var argv = require('minimist')(process.argv.slice(2));
+  console.dir(argv);
 
   var showNotification = false;
 

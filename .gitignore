@@ -1,1 +1,4 @@
 /node_modules/
+/sandbox/
+.idea/workspace.xml
+/.idea/
