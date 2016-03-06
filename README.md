@@ -23,7 +23,46 @@ var utils = require('cd-utils')();
 
 COMPLETE THIS SECTION (OUTLINE PARAMS AND PROPERTIES)
 
-Suppress reporting files which dont have syntax errors (passed files)
+### Methods
+
+#### notifyOptions(status, override)
+
+- status   S
+- override {}
+
+#### failMessage(options)
+
+#### passMessage(options)
+
+#### notifyPassed(options)
+
+#### notifyFailed(options)
+
+#### error(msg, data)
+
+#### info(msg, data)
+
+#### success(msg, data)
+
+#### warning(msg, data)
+
+#### isWindows
+
+#### mergeTemplate(msg, data)
+
+#### timestamp
+
+#### difference
+
+#### params
+
+#### param(key)
+
+#### is_js instance 
+
+#### chalk instance 
+
+#### 
 
 
 ## Credits

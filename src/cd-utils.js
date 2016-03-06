@@ -38,12 +38,6 @@ module.exports = function (opts) {
 		},
 		
 		failMessage: function(options) {
-			if ( options.showNotification ) {
-				return this.notifyOptions('fail', options);
-			}
-		},
-		
-		failMessage: function(options) {
 			if ( showNotification ) {
 				return this.notifyOptions('fail', options);
 			}
@@ -88,10 +82,7 @@ module.exports = function (opts) {
 			var tmp = this.mergeTemplate(msg, data);
 			return warning(tmp);
 		},
-
-		is: is,
-		chalk: chalk,
-		chalkline: chalkline,
+		
 		isWindows: function() {
 			return /^win/.test(process.platform);
 		},
@@ -105,15 +96,20 @@ module.exports = function (opts) {
 		timestamp: function() {
 			return moment().format('YYYY-DD-MM h:mm:ss:SS');
 		},
-		params: function() {
-			return paramsObj;
-		},
 		difference: function(start, end) {
 			return moment.utc(moment(end,"DD/MM/YYYY HH:mm:ss:SS").diff(moment(start,"DD/MM/YYYY HH:mm:ss:SS"))).format("HH:mm:ss:SS");
+		},
+		params: function() {
+			return paramsObj;
 		},
 		param: function(paramName) {
 			return paramsObj ? paramsObj[paramName] : null;
 		},
+
+		is: is,
+		chalk: chalk,
+		chalkline: chalkline,
+		
 	};
 
 	function sayHello(msg) {
