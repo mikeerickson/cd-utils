@@ -1,0 +1,31 @@
+{
+  "name": "cd-utils",
+  "version": "1.0.0",
+  "description": "CodeDungeon Utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs --reporter spec"
+  },
+  "keywords": [
+    "utils",
+    "node",
+    "gulp"
+  ],
+  "author": "Mike Erickson <codedungeon@gmail.com> (https://github.com/mikeerickson)",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "1.1.1",
+    "chalkline": "0.0.4",
+    "gulp-notify": "2.2.0",
+    "is_js": "0.8.0",
+    "lodash": "4.6.1",
+    "moment": "2.11.2",
+    "yargs": "4.2.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "2.2.0",
+    "gulp": "3.9.1",
+    "mocha": "2.4.5"
+  }
+}
