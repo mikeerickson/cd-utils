@@ -1,10 +1,14 @@
 {
   "name": "cd-utils",
-  "version": "1.0.0",
-  "description": "CodeDungeon Utilities",
+  "version": "0.0.1",
+  "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
   "scripts": {
     "test": "mocha specs --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikeerickson/cd-utils"
   },
   "keywords": [
     "utils",
@@ -21,7 +25,6 @@
     "gulp-notify": "2.2.0",
     "is_js": "0.8.0",
     "lodash": "4.6.1",
-    "minimist": "1.2.0",
     "moment": "2.11.2",
     "yargs": "4.2.0"
   },

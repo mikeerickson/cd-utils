@@ -6,8 +6,11 @@
 module.exports = function(params) {
 
 	var utils = require('./src/cd-utils')(params || {});
-
+	
 	var module = {
+		version: function() {
+			return require('./package').version;
+		},
 		notifyOptions: utils.notifyOptions,
 		failMessage:   utils.failMessage,
 		passMessage:   utils.passMessage,
@@ -26,16 +29,7 @@ module.exports = function(params) {
 		params:        utils.params,
 		param:         utils.param,
 	}
-	
-	function showTheLog(msg) {
-		console.log(msg);
-		return msg;
-	}
-	
-	function showHello(msg) {
-		return utils.sayHello(msg);
-	}
-	
+
 	return module;
-	
+
 }

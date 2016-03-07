@@ -10,19 +10,17 @@ var moment    = require('moment');
 var chalk     = require('chalk');
 var chalkline = require('chalkline');
 var paramsObj = require('yargs').argv;
-
-console.log('paramObj', paramsObj);
+var notifier  = require('node-notifier');
 
 module.exports = function (opts) {
 
 	var defaultOptions = {
 		showNotification: false
 	}
-
-	var options = defaults(defaultOptions, opts);
+	var moduleOptions = defaults(opts, defaultOptions);
 
 	var module = {
-		
+
 		notifyOptions: function(status, override) {
 			var options = {
 				taskName: 'Task',
@@ -36,28 +34,29 @@ module.exports = function (opts) {
 			return newOptions;
 
 		},
-		
+
 		failMessage: function(options) {
-			if ( showNotification ) {
+			if ( moduleOptions.showNotification ) {
 				return this.notifyOptions('fail', options);
 			}
+			return null;
 		},
 
 		passMessage: function(options) {
-			if ( showNotification ) {
+			if ( moduleOptions.showNotification ) {
 				return this.notifyOptions('pass', options);
 			}
 		},
 
-		notifyPassed: function(options) {
-			if ( showNotification ) {
-				return notify(this.notifyOptions('pass', options));
+		notifyFailed: function(options) {
+			if ( moduleOptions.showNotification ) {
+				return notifier.notify((this.notifyOptions('fail', options)));
 			}
 		},
 
-		notifyFailed: function(options) {
-			if ( showNotification ) {
-				return notify.onError((this.notifyOptions('fail', options)));
+		notifyPassed: function(options) {
+			if ( moduleOptions.showNotification ) {
+				return notifier.notify(this.notifyOptions('pass', options));
 			}
 		},
 
@@ -82,10 +81,11 @@ module.exports = function (opts) {
 			var tmp = this.mergeTemplate(msg, data);
 			return warning(tmp);
 		},
-		
+
 		isWindows: function() {
 			return /^win/.test(process.platform);
 		},
+
 		mergeTemplate: function(msg, data) {
 			if (data) {
 				var compiled = _.template(msg);
@@ -93,30 +93,32 @@ module.exports = function (opts) {
 			}
 			return msg;
 		},
+
 		timestamp: function() {
 			return moment().format('YYYY-DD-MM h:mm:ss:SS');
 		},
+
 		difference: function(start, end) {
 			return moment.utc(moment(end,"DD/MM/YYYY HH:mm:ss:SS").diff(moment(start,"DD/MM/YYYY HH:mm:ss:SS"))).format("HH:mm:ss:SS");
 		},
+
 		params: function() {
 			return paramsObj;
 		},
+
 		param: function(paramName) {
+			if((!is.object(paramsObj)) || (!is.string(paramName)) || (!paramsObj.hasOwnProperty(paramName))) {
+				return null;
+			}
 			return paramsObj ? paramsObj[paramName] : null;
 		},
 
+		// some useful modules that are used on most projects
 		is: is,
 		chalk: chalk,
 		chalkline: chalkline,
-		
+
 	};
-
-	function sayHello(msg) {
-		console.log('Hello ' + msg);
-	}
-
-
 
 	return module;
 };
