@@ -6,6 +6,7 @@
 var _         = require('lodash');
 var defaults  = require('defaults');
 var is        = require('is_js');
+var fs        = require('fs');
 var moment    = require('moment');
 var chalk     = require('chalk');
 var chalkline = require('chalkline');
@@ -86,6 +87,18 @@ module.exports = function (opts) {
 			return /^win/.test(process.platform);
 		},
 
+		isOSX: function() {
+			return /^darwin/.test(process.platform);
+		},
+
+		isLinux: function() {
+			return /^linux/.test(process.platform);
+		},
+
+		platform: function() {
+			return process.platform;
+		},
+
 		mergeTemplate: function(msg, data) {
 			if (data) {
 				var compiled = _.template(msg);
@@ -111,6 +124,33 @@ module.exports = function (opts) {
 				return null;
 			}
 			return paramsObj ? paramsObj[paramName] : null;
+		},
+
+		padCenter: function(msg, width, padding) {
+			var padStr = padding || ' ';
+			return _.pad(msg , width, padStr);
+		},
+
+		padLeft: function(msg, width, padding) {
+			var padStr = padding || ' ';
+			return _.padStart(msg , width, padStr);
+		},
+
+		padRight: function(msg, width, padding) {
+			var padStr = padding || ' ';
+			return _.padEnd(msg , width, padStr);
+		},
+
+		readFile: function(filename, returnType) {
+			var result = fs.readFileSync(filename, 'utf8');
+			if ( typeof(returnType) !== 'undefined') {
+				switch (returnType) {
+					case 'json':
+						return JSON.parse(result);
+						break;
+				}
+			}
+			return result;
 		},
 
 		// some useful modules that are used on most projects

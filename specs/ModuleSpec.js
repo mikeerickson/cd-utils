@@ -11,6 +11,13 @@ var expect  = chai.expect;
 var should = chai.should();
 
 describe('cd-utils', function() {
+
+	var str    = '';
+	var result = '';
+	beforeEach(function(){
+		str = 'Mike Erickson'
+	});
+
 	it('should pass', function() {
 		var foo = true;
 		expect(true).to.be.true;
@@ -64,11 +71,29 @@ describe('cd-utils', function() {
 	});
 
 	it('should return true if on windows', function() {
-		var ret = process.platform;
-		if ( ret === 'windows') {
+		result = process.platform;
+		if ( result === 'windows') {
 			expect(utils.isWindows()).to.be.true;
 		}
-		// expect(process.platform).to.equal('Task Completed Successfully');
+	});
+
+	it('should return true if on osx', function() {
+		result = process.platform;
+		if ( result === 'darwin') {
+			expect(utils.isOSX()).to.be.true;
+		}
+	});
+
+	it('should return true if on linux', function() {
+		result = process.platform;
+		if ( result === 'linux') {
+			expect(utils.isLinux()).to.be.true;
+		}
+	});
+
+	it('should return platform', function(){
+		result = process.platform;
+		expect(utils.platform()).to.equal(result);
 	});
 
 	it('should return false if not on windows', function() {
@@ -100,8 +125,39 @@ describe('cd-utils', function() {
 	// });
 
 	it('should retrieve parameter from command line parameters', function() {
-		var value = util.param('t');
+		var value = utils.param('t');
 		expect(value).to.equal('7000')
 	})
+
+	it('should pad left supplied string', function(){
+		result = utils.padLeft(str, 20);
+		expect(result.length).to.equal(20);
+		expect(result).to.equal('       Mike Erickson');
+
+		result = utils.padStart(str, 20);
+		expect(result.length).to.equal(20);
+		expect(result).to.equal('       Mike Erickson');
+	});
+
+	it('should pad right supplied string', function(){
+		result = utils.padRight(str, 15);
+		expect(result.length).to.equal(15);
+		expect(result).to.equal('Mike Erickson  ');
+
+		result = utils.padEnd(str, 15);
+		expect(result.length).to.equal(15);
+		expect(result).to.equal('Mike Erickson  ');
+	});
+
+	it('should pad center supplied string', function(){
+		result = utils.padCenter(str, 20);
+		expect(result.length).to.equal(20);
+		expect(result).to.equal('   Mike Erickson    ');
+	});
+
+	it('should read file synchronously', function() {
+		result = utils.readFile('./package.json','json');
+		expect(result.name).to.equal('cd-utils');
+	});
 
 });

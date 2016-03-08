@@ -6,7 +6,7 @@
 module.exports = function(params) {
 
 	var utils = require('./src/cd-utils')(params || {});
-	
+
 	var module = {
 		version: function() {
 			return require('./package').version;
@@ -23,11 +23,20 @@ module.exports = function(params) {
 		is:            utils.is,
 		chalk:         utils.chalk,
 		isWindows:     utils.isWindows,
+		isOSX:         utils.isOSX,
+		isLinux:       utils.isLinux,
+		platform:      utils.platform,
 		mergeTemplate: utils.mergeTemplate,
 		timestamp:     utils.timestamp,
 		difference:    utils.difference,
 		params:        utils.params,
 		param:         utils.param,
+		padLeft:       utils.padLeft,
+		padStart:      utils.padLeft,
+		padCenter:     utils.padCenter,
+		padRight:      utils.padRight,
+		padEnd:        utils.padRight,
+		readFile:      utils.readFile,
 	}
 
 	return module;
