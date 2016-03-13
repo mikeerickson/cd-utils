@@ -181,5 +181,10 @@ describe('cd-utils', function() {
 		result = utils.removeDir(['./temp','./tmp','./logs']);
 		expect(result).to.not.be.null;
 	});
+	
+	it('should attempt to remove invalid directory but no errors should be displayed',function(){
+		result = utils.removeDir(['./erickson']);
+		expect(result).to.not.be.null;
+	})
 
 });

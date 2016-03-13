@@ -164,7 +164,7 @@ module.exports = function (opts) {
 			}
 
 			if(! fs.existsSync(dirPath)) {
-				throw new Error('Invalid Directory: ' + dirPath);
+				// throw new Error('Invalid Directory: ' + dirPath);
 				return false;
 			}
 			if (removeSelf === undefined) {
