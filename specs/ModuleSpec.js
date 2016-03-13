@@ -14,6 +14,10 @@ describe('cd-utils', function() {
 
 	var str    = '';
 	var result = '';
+	var value  = 0;
+	var params = {};
+	var opts   = {};
+
 	beforeEach(function(){
 		str = 'Mike Erickson'
 	});
@@ -25,33 +29,35 @@ describe('cd-utils', function() {
 	});
 
 	it('should return passing notification options', function() {
-		var opts = utils.notifyOptions('pass');
+		opts = utils.notifyOptions('pass');
 		expect(opts.title).to.equal('Passed');
 	});
 
 	it('should return failing information', function() {
-		var opts = utils.notifyOptions('fail');
+		opts = utils.notifyOptions('fail');
 		expect(opts.icon).to.equal('./assets/test-fail.png');
 	});
 
 	it('should return failing message options', function() {
-		var opts = utils.failMessage({title: 'Test Title'});
+		opts = utils.failMessage({title: 'Test Title'});
 		expect(opts.title).to.equal('Test Title');
 		expect(opts.message).to.equal('Task Failed');
 	});
 
 	it('should return passing message options', function() {
-		var opts = utils.passMessage({title: 'Test Passing Title'});
+		opts = utils.passMessage({title: 'Test Passing Title'});
 		expect(opts.title).to.equal('Test Passing Title');
 		expect(opts.message).to.equal('Task Completed Successfully');
 	});
 
 	it('should display failing notification', function() {
-		var result = utils.notifyFailed({message: 'Fail Notify Test'});
+		result = utils.notifyFailed({message: 'Fail Notify Test'});
+		expect(result).to.be.a('object');
 	});
 
 	it('should display passing notification', function() {
-		var result = utils.notifyPassed({message: 'Pass Notify Test'});
+		result = utils.notifyPassed({message: 'Pass Notify Test'});
+		expect(result).to.be.a('object');
 	});
 
 	it('should display error console message', function() {
@@ -71,40 +77,35 @@ describe('cd-utils', function() {
 	});
 
 	it('should return true if on windows', function() {
-		result = process.platform;
-		if ( result === 'windows') {
+		if ( process.platform === 'windows') {
 			expect(utils.isWindows()).to.be.true;
 		}
 	});
 
 	it('should return true if on osx', function() {
-		result = process.platform;
-		if ( result === 'darwin') {
+		if ( process.platform === 'darwin') {
 			expect(utils.isOSX()).to.be.true;
 		}
 	});
 
 	it('should return true if on linux', function() {
-		result = process.platform;
-		if ( result === 'linux') {
+		if ( process.platform === 'linux') {
 			expect(utils.isLinux()).to.be.true;
 		}
 	});
 
 	it('should return platform', function(){
-		result = process.platform;
-		expect(utils.platform()).to.equal(result);
+		expect(utils.platform()).to.equal(process.platform);
 	});
 
 	it('should return false if not on windows', function() {
-		var ret = process.platform;
-		if ( ret !== 'windows') {
+		if ( process.platform !== 'windows') {
 			expect(utils.isWindows()).to.be.false;
 		}
 	});
 
 	it('should interpolate template', function(){
-		var result = utils.mergeTemplate('Hello <%= name %>', {name: 'Mike'});
+		result = utils.mergeTemplate('Hello <%= name %>', {name: 'Mike'});
 		result.should.equal('Hello Mike');
 	});
 
@@ -115,18 +116,29 @@ describe('cd-utils', function() {
 	});
 
 	it('should perform difference between two dates', function() {
-		var diff = utils.difference(new Date(), new Date());
+		var now  = "04/07/2016 16:20:00";
+		var then = "04/07/2016 14:20:00";
+		var diff = utils.difference(now,then);
+		diff.should.equal('22:00:00:00');
 		expect(diff).to.not.equal('Invalid date');
 	});
 
-	// it('should have parameters', function() {
-	// 	msg.dump(utils.params);
-	// 	return utils.params;
-	// });
+	it('should have parameters', function() {
+		params = utils.params();
+		if ( utils.is.object(params) ) {
+			params.should.be.a('object').and.not.be.empty;
+		}
+	});
 
 	it('should retrieve parameter from command line parameters', function() {
-		var value = utils.param('t');
-		expect(value).to.equal('7000')
+
+		// ticket number (example -t 7000) will be cast to number
+		value = utils.param('t');
+		if ( utils.is.number(value) ) {
+			expect(value).to.be.number;
+		} else {
+			expect(value).to.be.object;
+		}
 	})
 
 	it('should pad left supplied string', function(){
@@ -158,6 +170,16 @@ describe('cd-utils', function() {
 	it('should read file synchronously', function() {
 		result = utils.readFile('./package.json','json');
 		expect(result.name).to.equal('cd-utils');
+	});
+	
+	it('should create directories', function() {
+		result = utils.createDir(['./temp','./tmp','./logs']);
+		expect(result).to.not.be.null;
+	});
+	
+	it('should remove directory', function() {
+		result = utils.removeDir(['./temp','./tmp','./logs']);
+		expect(result).to.not.be.null;
 	});
 
 });

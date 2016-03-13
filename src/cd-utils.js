@@ -7,11 +7,13 @@ var _         = require('lodash');
 var defaults  = require('defaults');
 var is        = require('is_js');
 var fs        = require('fs');
+var fs        = require('fs');
 var moment    = require('moment');
 var chalk     = require('chalk');
 var chalkline = require('chalkline');
 var paramsObj = require('yargs').argv;
 var notifier  = require('node-notifier');
+var mkdirp    = require('mkdirp');
 
 module.exports = function (opts) {
 
@@ -151,6 +153,57 @@ module.exports = function (opts) {
 				}
 			}
 			return result;
+		},
+
+		removeDir: function(dirPath, removeSelf) {
+			if( typeof dirPath === 'object' ) {
+				dirPath.forEach(function(dirPath){
+					this.removeDir(dirPath, removeSelf);
+				}, this);
+				return false;
+			}
+
+			if(! fs.existsSync(dirPath)) {
+				throw new Error('Invalid Directory: ' + dirPath);
+				return false;
+			}
+			if (removeSelf === undefined) {
+				removeSelf = true;
+			}
+			try { var files = fs.readdirSync(dirPath); }
+			catch(e) { console.log(chalk.red(e)); return; }
+			if (files.length > 0) {
+				for (var i = 0; i < files.length; i++) {
+					var filePath = dirPath + '/' + files[i];
+					if (fs.statSync(filePath).isFile()) {
+						fs.unlinkSync(filePath);
+					} else {
+						this.removeDir(filePath);
+					}
+				}
+			}
+			if (removeSelf) {
+				fs.rmdirSync(dirPath);
+			}
+
+			return true;
+		},
+
+		createDir: function(dirPath) {
+
+			if( typeof dirPath === 'object' ) {
+				dirPath.forEach(function(dirPath){
+					this.createDir(dirPath);
+				}, this);
+				return true;
+			}
+
+			mkdirp.sync(dirPath, function (err) {
+				if (err)  {
+					console.error(err);
+					return false;
+				} else { return true };
+			});
 		},
 
 		// some useful modules that are used on most projects
