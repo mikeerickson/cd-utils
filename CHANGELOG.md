@@ -1,6 +1,10 @@
 ## Changelog
 	
-- 0.1.0:
+- 0.2.0:
+  - Added support for removing files (as part of removeDir)
+  - Added utils.removeFile
+	
+- 0.1.0
   - Added utils.createDir
 	- Added utils.removeDir
 	

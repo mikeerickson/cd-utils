@@ -38,6 +38,7 @@ module.exports = function(params) {
 		padEnd:         utils.padRight,
 		readFile:       utils.readFile,
 		removeDir:      utils.removeDir,
+		removeFile:     utils.removeFile,
 		createDir:      utils.createDir,
 	}
 

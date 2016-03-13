@@ -183,8 +183,13 @@ describe('cd-utils', function() {
 	});
 	
 	it('should attempt to remove invalid directory but no errors should be displayed',function(){
-		result = utils.removeDir(['./erickson']);
+		result = utils.removeDir(['./erickson','test.txt']);
 		expect(result).to.not.be.null;
-	})
+	});
+	
+	it('should remove file but suppress any errors', function(){
+		result = utils.removeFile('test.txt');
+		expect(result).to.not.be.null;
+	});
 
 });

@@ -155,6 +155,17 @@ module.exports = function (opts) {
 			return result;
 		},
 
+		removeFile: function(filename) {
+			
+			if(fs.existsSync(filename)) {
+				if( ! fs.lstatSync(filename).isDirectory()) {
+					fs.unlink(filename);
+					return true;
+				}
+			}
+			return false;
+		},
+		
 		removeDir: function(dirPath, removeSelf) {
 			if( typeof dirPath === 'object' ) {
 				dirPath.forEach(function(dirPath){
@@ -163,10 +174,17 @@ module.exports = function (opts) {
 				return false;
 			}
 
+
 			if(! fs.existsSync(dirPath)) {
 				// throw new Error('Invalid Directory: ' + dirPath);
 				return false;
 			}
+
+			if( ! fs.lstatSync(dirPath).isDirectory()) {
+				fs.unlink(dirPath);
+				return true;
+			}
+
 			if (removeSelf === undefined) {
 				removeSelf = true;
 			}
