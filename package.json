@@ -1,6 +1,6 @@
 {
   "name": "cd-utils",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
   "scripts": {

@@ -115,6 +115,9 @@ module.exports = function (opts) {
 				if (is.undefined(trimChar)) {
 					trimChar = '...';
 				}
+				if(! is.string(data)) {
+					data = data.toString();
+				}
 				if(is.string(data)) {
 					if ( dataLength >= data.length) {
 						return data;
