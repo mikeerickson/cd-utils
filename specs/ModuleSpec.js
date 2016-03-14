@@ -191,5 +191,10 @@ describe('cd-utils', function() {
 		result = utils.removeFile('test.txt');
 		expect(result).to.not.be.null;
 	});
+	
+	it('should trim string', function() {
+		result = utils.ellipsis('Mike Erickson', 4);
+		expect(result).to.equal('Mike...')
+	});
 
 });

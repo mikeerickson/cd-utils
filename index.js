@@ -40,6 +40,7 @@ module.exports = function(params) {
 		removeDir:      utils.removeDir,
 		removeFile:     utils.removeFile,
 		createDir:      utils.createDir,
+		ellipsis:       utils.ellipsis,
 	}
 
 	return module;

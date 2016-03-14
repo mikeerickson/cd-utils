@@ -1,5 +1,8 @@
 ## Changelog
 	
+- 0.3.0:
+  - Added utils.ellipsis
+	
 - 0.2.0:
   - Added support for removing files (as part of removeDir)
   - Added utils.removeFile

@@ -109,6 +109,24 @@ module.exports = function (opts) {
 			return msg;
 		},
 
+		ellipsis: function(data, dataLength, trimChar) {
+			
+			if (!is.undefined(dataLength)) {
+				if (is.undefined(trimChar)) {
+					trimChar = '...';
+				}
+				if(is.string(data)) {
+					if ( dataLength >= data.length) {
+						return data;
+					}
+					var result = data.substr(0, dataLength) + trimChar;
+					return result;
+				}
+				
+				return null;
+			}
+		},
+
 		timestamp: function() {
 			return moment().format('YYYY-DD-MM h:mm:ss:SS');
 		},
@@ -156,7 +174,7 @@ module.exports = function (opts) {
 		},
 
 		removeFile: function(filename) {
-			
+
 			if(fs.existsSync(filename)) {
 				if( ! fs.lstatSync(filename).isDirectory()) {
 					fs.unlink(filename);
@@ -165,7 +183,7 @@ module.exports = function (opts) {
 			}
 			return false;
 		},
-		
+
 		removeDir: function(dirPath, removeSelf) {
 			if( typeof dirPath === 'object' ) {
 				dirPath.forEach(function(dirPath){
