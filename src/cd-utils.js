@@ -7,13 +7,13 @@ var _         = require('lodash');
 var defaults  = require('defaults');
 var is        = require('is_js');
 var fs        = require('fs');
-var fs        = require('fs');
 var moment    = require('moment');
 var chalk     = require('chalk');
 var chalkline = require('chalkline');
 var paramsObj = require('yargs').argv;
 var notifier  = require('node-notifier');
 var mkdirp    = require('mkdirp');
+var path      = require('path');
 
 module.exports = function (opts) {
 
@@ -29,7 +29,7 @@ module.exports = function (opts) {
 				taskName: 'Task',
 				title:    ( status === 'pass') ? 'Passed' : 'Failed',
 				message:  ( status === 'pass' ) ? '<%= taskName %> Completed Successfully' : '<%= taskName %> Failed',
-				icon:     './assets/test-' + status + '.png'
+				icon:     path.join(__dirname, '../', 'assets/test-' + status + '.png')
 			};
 
 			var newOptions     = _.merge(options, override);
@@ -39,26 +39,26 @@ module.exports = function (opts) {
 		},
 
 		failMessage: function(options) {
-			if ( moduleOptions.showNotification ) {
+			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return this.notifyOptions('fail', options);
 			}
 			return null;
 		},
 
 		passMessage: function(options) {
-			if ( moduleOptions.showNotification ) {
+			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return this.notifyOptions('pass', options);
 			}
 		},
 
 		notifyFailed: function(options) {
-			if ( moduleOptions.showNotification ) {
+			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return notifier.notify((this.notifyOptions('fail', options)));
 			}
 		},
 
 		notifyPassed: function(options) {
-			if ( moduleOptions.showNotification ) {
+			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return notifier.notify(this.notifyOptions('pass', options));
 			}
 		},
@@ -110,7 +110,7 @@ module.exports = function (opts) {
 		},
 
 		ellipsis: function(data, dataLength, trimChar) {
-			
+
 			if (!is.undefined(dataLength)) {
 				if (is.undefined(trimChar)) {
 					trimChar = '...';
@@ -125,7 +125,7 @@ module.exports = function (opts) {
 					var result = data.substr(0, dataLength) + trimChar;
 					return result;
 				}
-				
+
 				return null;
 			}
 		},

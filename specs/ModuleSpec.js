@@ -35,7 +35,7 @@ describe('cd-utils', function() {
 
 	it('should return failing information', function() {
 		opts = utils.notifyOptions('fail');
-		expect(opts.icon).to.equal('./assets/test-fail.png');
+		expect(opts.icon).to.contain('cd-utils/assets/test-fail.png');
 	});
 
 	it('should return failing message options', function() {
@@ -171,27 +171,27 @@ describe('cd-utils', function() {
 		result = utils.readFile('./package.json','json');
 		expect(result.name).to.equal('cd-utils');
 	});
-	
+
 	it('should create directories', function() {
 		result = utils.createDir(['./temp','./tmp','./logs']);
 		expect(result).to.not.be.null;
 	});
-	
+
 	it('should remove directory', function() {
 		result = utils.removeDir(['./temp','./tmp','./logs']);
 		expect(result).to.not.be.null;
 	});
-	
+
 	it('should attempt to remove invalid directory but no errors should be displayed',function(){
 		result = utils.removeDir(['./erickson','test.txt']);
 		expect(result).to.not.be.null;
 	});
-	
+
 	it('should remove file but suppress any errors', function(){
 		result = utils.removeFile('test.txt');
 		expect(result).to.not.be.null;
 	});
-	
+
 	it('should trim string', function() {
 		result = utils.ellipsis('Mike Erickson', 4);
 		expect(result).to.equal('Mike...')

@@ -1,5 +1,10 @@
 ## Changelog
 	
+- 0.5.0:
+  - Fixed issue with `icon` property in notifyOptions
+  
+- 0.4.0:
+  - Add utils.mkdir (calls utils.createDir)
 - 0.3.0:
   - Added utils.ellipsis
 	
