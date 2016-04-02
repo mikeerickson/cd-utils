@@ -1,5 +1,8 @@
 ## Changelog
 	
+- 0.6.0
+  - Added missing 'node-notifier' dependency
+  
 - 0.5.0:
   - Fixed issue with `icon` property in notifyOptions
   
