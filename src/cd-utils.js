@@ -17,7 +17,6 @@ var notifier  = require('node-notifier');
 var mkdirp    = require('mkdirp');
 var path      = require('path');
 var strman    = require('strman');
-var handleErrors = require('./handleErrors');
 
 module.exports = function (opts) {
 
@@ -255,7 +254,6 @@ module.exports = function (opts) {
 		chalkline:    chalkline,
 		str:          strman,
 		extend:       defaults,
-		handleErrors: handleErrors,
 		
 	};
 
