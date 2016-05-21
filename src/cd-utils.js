@@ -1,6 +1,8 @@
 // CD-UTILS
 // =============================================================================
 
+// TODO: This needs updated documentation (in readme)
+
 /*global require*/
 
 var _         = require('lodash');
@@ -14,6 +16,8 @@ var paramsObj = require('yargs').argv;
 var notifier  = require('node-notifier');
 var mkdirp    = require('mkdirp');
 var path      = require('path');
+var strman    = require('strman');
+var handleErrors = require('./handleErrors');
 
 module.exports = function (opts) {
 
@@ -37,7 +41,7 @@ module.exports = function (opts) {
 			return newOptions;
 
 		},
-
+		
 		failMessage: function(options) {
 			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return this.notifyOptions('fail', options);
@@ -246,10 +250,13 @@ module.exports = function (opts) {
 		},
 
 		// some useful modules that are used on most projects
-		is: is,
-		chalk: chalk,
-		chalkline: chalkline,
-
+		is:           is,
+		chalk:        chalk,
+		chalkline:    chalkline,
+		str:          strman,
+		extend:       defaults,
+		handleErrors: handleErrors,
+		
 	};
 
 	return module;

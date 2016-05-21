@@ -1,7 +1,9 @@
-// CD-UTILS INDEX
-// =============================================================================
-
-/*global require*/
+/**
+ * index.js
+ * Mike Erickson <codedungeon@gmail.com>
+ * 2016.05.20 20:54 (mikee)
+ * =============================================================================
+ */
 
 module.exports = function(params) {
 
@@ -42,6 +44,9 @@ module.exports = function(params) {
 		createDir:      utils.createDir,
 		mkdir:          utils.createDir,
 		ellipsis:       utils.ellipsis,
+		extend:         utils.extend,
+		handleErrors:   utils.handleErrors,
+
 	}
 
 	return module;

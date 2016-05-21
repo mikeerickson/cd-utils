@@ -192,9 +192,18 @@ describe('cd-utils', function() {
 		expect(result).to.not.be.null;
 	});
 
-	it('should trim string', function() {
+	it('should create ellipsis string', function() {
 		result = utils.ellipsis('Mike Erickson', 4);
 		expect(result).to.equal('Mike...')
+	});
+
+	it('should produce `defaults` using `extend`', function() {
+		var opts = {fname: 'Mike'};
+		var result = utils.extend(opts,{param: 'kira'});
+
+		expect(result).to.include.keys('fname');
+		expect(result).to.include.keys('param');
+		expect(result).to.be.an('object');
 	});
 
 });

@@ -1,5 +1,15 @@
 ## Changelog
 	
+- 0.8.0 
+  - Added `handleErrors`
+
+- 0.7.0
+  - Added `strman` library
+    Add some content here
+  - Added utils.extend
+    Merges two objects into a single object
+    var result = utils.extend(sourceObj, extendObj);
+
 - 0.6.0
   - Added missing 'node-notifier' dependency
   
