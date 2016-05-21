@@ -27,5 +27,5 @@ module.exports = function(config) {
 	}
 
 	// Keep gulp from hanging on this task
-	this.emit('end');
+	//this.emit('end');
 };
