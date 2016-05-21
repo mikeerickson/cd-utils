@@ -45,6 +45,7 @@ module.exports = function(params) {
 		mkdir:          utils.createDir,
 		ellipsis:       utils.ellipsis,
 		extend:         utils.extend,
+		dates:          utils.dates,
 
 	}
 

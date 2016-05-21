@@ -1,8 +1,11 @@
 ## Changelog
 	
-- 0.8.0 
-  - Added `handleErrors`
+- 0.9.0 
+  - Added `date-fns` as helpers so they are available all the time :-)
 
+- 0.8.0 
+  - Internal release, cleaning up dependencies
+  
 - 0.7.0
   - Added `strman` library
     Add some content here
