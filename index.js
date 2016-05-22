@@ -33,6 +33,8 @@ module.exports = function(params) {
 		difference:     utils.difference,
 		params:         utils.params,
 		param:          utils.param,
+		args:           utils.params,
+		arg:            utils.param,
 		padLeft:        utils.padLeft,
 		padStart:       utils.padLeft,
 		padCenter:      utils.padCenter,

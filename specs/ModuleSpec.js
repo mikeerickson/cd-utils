@@ -20,7 +20,7 @@ describe('cd-utils', function() {
   var pluralize;
 	
 	beforeEach(function(){
-		str = 'Mike Erickson'
+		str       = 'Mike Erickson';
 	  pluralize = utils.pluralize;	
 	});
 
@@ -132,10 +132,28 @@ describe('cd-utils', function() {
 		}
 	});
 
+	it('should have arguments', function() {
+		args = utils.args();
+		if ( utils.is.object(args) ) {
+			args.should.be.a('object').and.not.be.empty;
+		}
+	});
+
 	it('should retrieve parameter from command line parameters', function() {
 
 		// ticket number (example -t 7000) will be cast to number
 		value = utils.param('t');
+		if ( utils.is.number(value) ) {
+			expect(value).to.be.number;
+		} else {
+			expect(value).to.be.object;
+		}
+	})
+
+	it('should retrieve argument from command line arguments', function() {
+
+		// ticket number (example -t 7000) will be cast to number
+		value = utils.arg('t');
 		if ( utils.is.number(value) ) {
 			expect(value).to.be.number;
 		} else {

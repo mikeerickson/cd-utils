@@ -1,5 +1,9 @@
 ## Changelog
 	
+- 0.10.0
+  - Added `args` (alias for `params`)
+  - Added `arg` (alias for `param`)
+
 - 0.9.0 
   - Added `date-fns` as helpers so they are available all the time :-)
   - Added `sprintf` method
