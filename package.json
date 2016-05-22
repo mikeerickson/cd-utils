@@ -24,31 +24,30 @@
     "chalkline": "0.0.4",
     "date-fns": "1.1.1",
     "defaults": "1.0.3",
-    "gulp-messenger": "0.16.1",
+    "gulp-messenger": "0.16.2",
     "gulp-notify": "2.2.0",
-    "is_js": "0.8.0",
+    "is_js": "0.9.0",
     "lodash": "4.6.1",
+    "mkdirp": "0.5.1",
     "moment": "2.13.0",
     "node-notifier": "4.5.0",
-    "strman": "1.0.3",
-    "yargs": "4.6.0"
+    "pluralize": "2.0.0",
+    "sprintf-js": "1.0.3",
+    "strman": "1.2.0",
+    "yargs": "4.7.1"
   },
   "devDependencies": {
     "assert": "1.4.0",
     "chai": "3.5.0",
     "eslint": "2.10.2",
     "gulp": "3.9.1",
-    "gulp-messenger": "0.16.2",
     "gulp-mocha": "2.2.0",
     "gulp-todo": "4.1.0",
     "minimist": "1.2.0",
-    "mkdirp": "0.5.1",
     "mocha": "2.4.5",
     "mocha-sinon": "1.1.5",
     "mocha-unfunk-reporter": "0.4.0",
     "require-dir": "0.3.0",
-    "sinon": "1.17.4",
-    "strman": "1.2.0",
-    "yargs": "4.7.1"
+    "sinon": "1.17.4"
   }
 }

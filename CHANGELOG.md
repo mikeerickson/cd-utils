@@ -2,6 +2,10 @@
 	
 - 0.9.0 
   - Added `date-fns` as helpers so they are available all the time :-)
+  - Added `sprintf` method
+  - Added `vsprintf` method
+    - Documentation:  https://github.com/alexei/sprintf.js
+  - Added `pluralize` module
 
 - 0.8.0 
   - Internal release, cleaning up dependencies

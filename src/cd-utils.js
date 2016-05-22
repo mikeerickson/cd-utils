@@ -18,6 +18,9 @@ var mkdirp    = require('mkdirp');
 var path      = require('path');
 var strman    = require('strman');
 var dates     = require('date-fns');
+var sprintf   = require("sprintf-js").sprintf;
+var vsprintf  = require("sprintf-js").vsprintf;
+var pluralize = require('pluralize');
 
 module.exports = function (opts) {
 
@@ -256,7 +259,10 @@ module.exports = function (opts) {
 		str:          strman,
 		extend:       defaults,
 		dates:        dates,
-		
+		sprintf:      sprintf,
+		vsprintf:     vsprintf,
+		pluralize:    pluralize,
+
 	};
 
 	return module;

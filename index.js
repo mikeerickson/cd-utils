@@ -46,6 +46,9 @@ module.exports = function(params) {
 		ellipsis:       utils.ellipsis,
 		extend:         utils.extend,
 		dates:          utils.dates,
+		sprintf:        utils.sprintf,
+		vsprintf:       utils.vsprintf,
+		pluralize:      utils.pluralize,
 
 	}
 

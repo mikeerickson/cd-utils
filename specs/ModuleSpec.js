@@ -17,9 +17,11 @@ describe('cd-utils', function() {
 	var value  = 0;
 	var params = {};
 	var opts   = {};
-
+  var pluralize;
+	
 	beforeEach(function(){
 		str = 'Mike Erickson'
+	  pluralize = utils.pluralize;	
 	});
 
 	it('should pass', function() {
@@ -204,6 +206,14 @@ describe('cd-utils', function() {
 		expect(result).to.include.keys('fname');
 		expect(result).to.include.keys('param');
 		expect(result).to.be.an('object');
+	});
+
+	it('should pluralize values',function() {
+		expect(pluralize('test')).to.equal("tests")
+		expect(pluralize('test', 1)).to.equal("test")
+		expect(pluralize('test', 5)).to.equal("tests")
+		expect(pluralize('test', 1, true)).to.equal("1 test")
+		expect(pluralize('test', 5, true)).to.equal("5 tests")
 	});
 
 });
