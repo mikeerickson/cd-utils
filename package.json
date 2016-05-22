@@ -1,6 +1,6 @@
 {
   "name": "cd-utils",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "gulp": "3.9.1",
     "gulp-mocha": "2.2.0",
     "gulp-todo": "4.1.0",
+    "is_js": "0.8.0",
     "minimist": "1.2.0",
     "mocha": "2.4.5",
     "mocha-sinon": "1.1.5",

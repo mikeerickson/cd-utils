@@ -1,5 +1,8 @@
 ## Changelog
-	
+
+- 0.10.1
+  - Bumped is_js version
+  
 - 0.10.0
   - Added `args` (alias for `params`)
   - Added `arg` (alias for `param`)
