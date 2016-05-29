@@ -1,8 +1,9 @@
 {
   "name": "cd-utils",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
+  "reveal": true,
   "scripts": {
     "test-mocha": "mocha specs --reporter mocha-unfunk-reporter",
     "test:watch": "mocha specs --reporter mocha-unfunk-reporter --watch",

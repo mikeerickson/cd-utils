@@ -1,5 +1,8 @@
 ## Changelog
 
+- 0.11.0
+  - Updated to `reveal` on `npmaddict.com`
+
 - 0.10.1
   - Bumped is_js version
   
