@@ -1,5 +1,9 @@
 ## Changelog
 
+- 0.12.0
+  - Added `version` method
+  - Added `name` method
+  
 - 0.11.0
   - Updated to `reveal` on `npmaddict.com`
 

@@ -13,6 +13,9 @@ module.exports = function(params) {
 		version: function() {
 			return require('./package').version;
 		},
+		name: function() {
+			return require('./package').name;
+		},
 		notifyOptions:  utils.notifyOptions,
 		failMessage:    utils.failMessage,
 		passMessage:    utils.passMessage,

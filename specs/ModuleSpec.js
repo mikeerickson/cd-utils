@@ -1,11 +1,16 @@
-// MODULE TEST
-// =============================================================================
+/**
+ * ModuleSpec.js
+ * Created: 2016.07.04 15:33 - mikee
+ * =============================================================================
+ */
+
 
 /*global require*/
 
-var chai  = require('chai');
-var utils = require('../index')({showNotification: true});
-var msg   = require('gulp-messenger');
+var chai    = require('chai');
+var utils   = require('../index')({showNotification: true});
+var msg     = require('gulp-messenger');
+var pkgInfo = require('../package');
 
 var expect  = chai.expect;
 var should = chai.should();
@@ -23,11 +28,17 @@ describe('cd-utils', function() {
 		str       = 'Mike Erickson';
 	  pluralize = utils.pluralize;	
 	});
+	
+	it('should return version', function() {
+		var version = utils.version();
+		var pkgVers = pkgInfo.version;
+		version.should.equal(pkgVers);
+	});
 
-	it('should pass', function() {
-		var foo = true;
-		expect(true).to.be.true;
-		foo.should.be.a('boolean').and.equal(true);
+	it('should return name', function() {
+		var name    = utils.name();
+		var pkgName = pkgInfo.name;
+		name.should.equal(pkgName);
 	});
 
 	it('should return passing notification options', function() {
