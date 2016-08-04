@@ -1,6 +1,6 @@
 {
   "name": "cd-utils",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
   "reveal": true,
@@ -16,7 +16,11 @@
   "keywords": [
     "utils",
     "node",
-    "gulp"
+    "gulp",
+    "string",
+    "arrays",
+    "console",
+    "notification"
   ],
   "author": "Mike Erickson <codedungeon@gmail.com> (https://github.com/mikeerickson)",
   "license": "MIT",

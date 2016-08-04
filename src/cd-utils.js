@@ -21,6 +21,7 @@ var dates     = require('date-fns');
 var sprintf   = require('sprintf-js').sprintf;
 var vsprintf  = require('sprintf-js').vsprintf;
 var pluralize = require('pluralize');
+var kindOf    = require('kind-of');
 
 module.exports = function (opts) {
 
@@ -253,6 +254,7 @@ module.exports = function (opts) {
 
 		// some useful modules that are used on most projects
 		is:           is,
+		kindOf:       kindOf,
 		chalk:        chalk,
 		chalkline:    chalkline,
 		str:          strman,
