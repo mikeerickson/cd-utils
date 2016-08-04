@@ -245,11 +245,15 @@ describe('cd-utils', function () {
 		expect(pluralize('test', 5, true)).to.equal('5 tests')
 	});
 
+	// https://www.npmjs.com/package/kind-of
 	it('should spot check `kindOf` instance', function () {
 		expect(utils.kindOf({})).to.be.object;
 		expect(utils.kindOf([])).to.be.array;
 		expect(utils.kindOf('name')).to.not.be.array;
 		expect(utils.kindOf(['name'])).to.not.be.object;
+		expect(utils.kindOf(new Date())).to.not.be.object;
+		expect(utils.kindOf(new Map())).to.not.be.map;
+		expect(utils.kindOf(new WeakSet())).to.not.be.weakset;
 	});
 
 });
