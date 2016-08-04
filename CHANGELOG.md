@@ -3,8 +3,9 @@
 - 0.13.0
   - Added `kind-of` library (returned as `kindOf`)
     https://www.npmjs.com/package/kind-of
- 
+
   - ESLinted entire project (indluding all source and tests)
+  - Added appropriate tests to check new features
 
 - 0.12.0
   - Added `version` method

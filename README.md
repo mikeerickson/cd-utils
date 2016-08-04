@@ -17,7 +17,7 @@ After you have installed plugin, you can access like any standard node module
 ```javascript
 var utils = require('cd-utils')();
 ```
-**Note: When reuqiring `cd-utils` you must include the addition parens to execute internal function
+**Note: When requiring `cd-utils` you must include the addition parens to execute internal function**
 
 ## API
 
