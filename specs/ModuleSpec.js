@@ -26,7 +26,7 @@ describe('cd-utils', function () {
 
 	beforeEach(function (){
 		str       = 'Mike Erickson';
-		pluralize = utils.pluralize;	
+		pluralize = utils.pluralize;
 	});
 
 	it('should return version', function () {
@@ -243,6 +243,13 @@ describe('cd-utils', function () {
 		expect(pluralize('test', 5)).to.equal('tests')
 		expect(pluralize('test', 1, true)).to.equal('1 test')
 		expect(pluralize('test', 5, true)).to.equal('5 tests')
+	});
+
+	it('should spot check `kindOf` instance', function () {
+		expect(utils.kindOf({})).to.be.object;
+		expect(utils.kindOf([])).to.be.array;
+		expect(utils.kindOf('name')).to.not.be.array;
+		expect(utils.kindOf(['name'])).to.not.be.object;
 	});
 
 });

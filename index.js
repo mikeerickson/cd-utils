@@ -26,6 +26,7 @@ module.exports = function (params) {
 		success:        utils.success,
 		warning:        utils.warning,
 		is:             utils.is,
+		kindOf:         utils.kindOf,
 		chalk:          utils.chalk,
 		isWindows:      utils.isWindows,
 		isOSX:          utils.isOSX,

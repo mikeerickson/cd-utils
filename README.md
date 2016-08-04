@@ -58,9 +58,11 @@ COMPLETE THIS SECTION (OUTLINE PARAMS AND PROPERTIES)
 
 #### param(key)
 
-#### is_js instance 
+#### is_js instance
 
-#### chalk instance 
+#### kind-of instance (as kindOf)
+
+#### chalk instance
 
 #### extend
 
@@ -74,4 +76,3 @@ E-Mail: [codedungeon@gmail.com](mailto:codedungeon@gmail.com)
 Twitter: [@codedungeon](http://twitter.com/codedungeon)
 
 Website: [codedungeon.org](http://codedungeon.org)
-
