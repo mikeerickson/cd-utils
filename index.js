@@ -5,15 +5,15 @@
  * =============================================================================
  */
 
-module.exports = function(params) {
+module.exports = function (params) {
 
 	var utils = require('./src/cd-utils')(params || {});
 
 	var module = {
-		version: function() {
+		version: function () {
 			return require('./package').version;
 		},
-		name: function() {
+		name: function () {
 			return require('./package').name;
 		},
 		notifyOptions:  utils.notifyOptions,

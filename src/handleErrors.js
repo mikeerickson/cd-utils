@@ -1,17 +1,17 @@
-/** 
+/**
  * handleErrors.js
  * Mike Erickson <codedungeon@gmail.com>
  * 2016.05.20 20:50 (mikee)
  * =============================================================================
  */
- 
-var notify = require("gulp-notify");
-var chalk  = require('chalk');
+
+var notify = require('gulp-notify');
+var chalk  = require('chalk');
 var config = {
 	show: true
 };
 
-module.exports = function(config) {
+module.exports = function (config) {
 
 	var args = Array.prototype.slice.call(arguments);
 
@@ -19,8 +19,8 @@ module.exports = function(config) {
 
 	if ( config.show ) {
 		notify.onError({
-			title: "Compile Error",
-			message: "<%= error %>"
+			title: 'Compile Error',
+			message: '<%= error %>'
 		}).apply(this, args);
 	} else {
 		console.log(chalk.red('An error occurred during task processing'));

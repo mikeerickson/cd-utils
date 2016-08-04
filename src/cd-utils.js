@@ -18,8 +18,8 @@ var mkdirp    = require('mkdirp');
 var path      = require('path');
 var strman    = require('strman');
 var dates     = require('date-fns');
-var sprintf   = require("sprintf-js").sprintf;
-var vsprintf  = require("sprintf-js").vsprintf;
+var sprintf   = require('sprintf-js').sprintf;
+var vsprintf  = require('sprintf-js').vsprintf;
 var pluralize = require('pluralize');
 
 module.exports = function (opts) {
@@ -31,7 +31,7 @@ module.exports = function (opts) {
 
 	var module = {
 
-		notifyOptions: function(status, override) {
+		notifyOptions: function (status, override) {
 			var options = {
 				taskName: 'Task',
 				title:    ( status === 'pass') ? 'Passed' : 'Failed',
@@ -44,88 +44,88 @@ module.exports = function (opts) {
 			return newOptions;
 
 		},
-		
-		failMessage: function(options) {
+
+		failMessage: function (options) {
 			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return this.notifyOptions('fail', options);
 			}
 			return null;
 		},
 
-		passMessage: function(options) {
+		passMessage: function (options) {
 			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return this.notifyOptions('pass', options);
 			}
 		},
 
-		notifyFailed: function(options) {
+		notifyFailed: function (options) {
 			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return notifier.notify((this.notifyOptions('fail', options)));
 			}
 		},
 
-		notifyPassed: function(options) {
+		notifyPassed: function (options) {
 			if (( moduleOptions.showNotification ) || (options.showNotification)) {
 				return notifier.notify(this.notifyOptions('pass', options));
 			}
 		},
 
-		error: function(msg) {
+		error: function (msg) {
 			var error = chalk.bold.red;
 			return error(msg);
 		},
 
-		info: function(msg, data) {
+		info: function (msg, data) {
 			var tmp = this.mergeTemplate(msg, data);
 			return chalk.blue(tmp);
 		},
 
-		success: function(msg, data) {
+		success: function (msg, data) {
 			var success = chalk.green;
 			var tmp = this.mergeTemplate(msg, data);
 			return success(tmp);
 		},
 
-		warning: function(msg, data) {
+		warning: function (msg, data) {
 			var warning = chalk.yellow;
 			var tmp = this.mergeTemplate(msg, data);
 			return warning(tmp);
 		},
 
-		isWindows: function() {
+		isWindows: function () {
 			return /^win/.test(process.platform);
 		},
 
-		isOSX: function() {
+		isOSX: function () {
 			return /^darwin/.test(process.platform);
 		},
 
-		isLinux: function() {
+		isLinux: function () {
 			return /^linux/.test(process.platform);
 		},
 
-		platform: function() {
+		platform: function () {
 			return process.platform;
 		},
 
-		mergeTemplate: function(msg, data) {
+		mergeTemplate: function (msg, data) {
 			if (data) {
 				var compiled = _.template(msg);
-				return(compiled(data));
+				return (compiled(data));
 			}
 			return msg;
 		},
 
-		ellipsis: function(data, dataLength, trimChar) {
+		ellipsis: function (data, dataLength, trimChar) {
 
 			if (!is.undefined(dataLength)) {
 				if (is.undefined(trimChar)) {
 					trimChar = '...';
 				}
-				if(! is.string(data)) {
+				if (!is.string(data)) {
 					data = data.toString();
 				}
-				if(is.string(data)) {
+				if (is.string(data)) {
 					if ( dataLength >= data.length) {
 						return data;
 					}
@@ -137,56 +137,55 @@ module.exports = function (opts) {
 			}
 		},
 
-		timestamp: function() {
+		timestamp: function () {
 			return moment().format('YYYY-DD-MM h:mm:ss:SS');
 		},
 
-		difference: function(start, end) {
-			return moment.utc(moment(end,"DD/MM/YYYY HH:mm:ss:SS").diff(moment(start,"DD/MM/YYYY HH:mm:ss:SS"))).format("HH:mm:ss:SS");
+		difference: function (start, end) {
+			return moment.utc(moment(end,'DD/MM/YYYY HH:mm:ss:SS').diff(moment(start,'DD/MM/YYYY HH:mm:ss:SS'))).format('HH:mm:ss:SS');
 		},
 
-		params: function() {
+		params: function () {
 			return paramsObj;
 		},
 
-		param: function(paramName) {
-			if((!is.object(paramsObj)) || (!is.string(paramName)) || (!paramsObj.hasOwnProperty(paramName))) {
+		param: function (paramName) {
+			if ((!is.object(paramsObj)) || (!is.string(paramName)) || (!paramsObj.hasOwnProperty(paramName))) {
 				return null;
 			}
 			return paramsObj ? paramsObj[paramName] : null;
 		},
 
-		padCenter: function(msg, width, padding) {
+		padCenter: function (msg, width, padding) {
 			var padStr = padding || ' ';
 			return _.pad(msg , width, padStr);
 		},
 
-		padLeft: function(msg, width, padding) {
+		padLeft: function (msg, width, padding) {
 			var padStr = padding || ' ';
 			return _.padStart(msg , width, padStr);
 		},
 
-		padRight: function(msg, width, padding) {
+		padRight: function (msg, width, padding) {
 			var padStr = padding || ' ';
 			return _.padEnd(msg , width, padStr);
 		},
 
-		readFile: function(filename, returnType) {
+		readFile: function (filename, returnType) {
 			var result = fs.readFileSync(filename, 'utf8');
-			if ( typeof(returnType) !== 'undefined') {
+			if (typeof (returnType) !== 'undefined') {
 				switch (returnType) {
 					case 'json':
 						return JSON.parse(result);
-						break;
 				}
 			}
 			return result;
 		},
 
-		removeFile: function(filename) {
+		removeFile: function (filename) {
 
-			if(fs.existsSync(filename)) {
-				if( ! fs.lstatSync(filename).isDirectory()) {
+			if (fs.existsSync(filename)) {
+				if (!fs.lstatSync(filename).isDirectory()) {
 					fs.unlink(filename);
 					return true;
 				}
@@ -194,21 +193,21 @@ module.exports = function (opts) {
 			return false;
 		},
 
-		removeDir: function(dirPath, removeSelf) {
-			if( typeof dirPath === 'object' ) {
-				dirPath.forEach(function(dirPath){
+		removeDir: function (dirPath, removeSelf) {
+			if ( typeof dirPath === 'object' ) {
+				dirPath.forEach(function (dirPath){
 					this.removeDir(dirPath, removeSelf);
 				}, this);
 				return false;
 			}
 
 
-			if(! fs.existsSync(dirPath)) {
+			if (!fs.existsSync(dirPath)) {
 				// throw new Error('Invalid Directory: ' + dirPath);
 				return false;
 			}
 
-			if( ! fs.lstatSync(dirPath).isDirectory()) {
+			if (!fs.lstatSync(dirPath).isDirectory()) {
 				fs.unlink(dirPath);
 				return true;
 			}
@@ -217,7 +216,7 @@ module.exports = function (opts) {
 				removeSelf = true;
 			}
 			try { var files = fs.readdirSync(dirPath); }
-			catch(e) { console.log(chalk.red(e)); return; }
+			catch (e) { console.log(chalk.red(e)); return; }
 			if (files.length > 0) {
 				for (var i = 0; i < files.length; i++) {
 					var filePath = dirPath + '/' + files[i];
@@ -235,10 +234,10 @@ module.exports = function (opts) {
 			return true;
 		},
 
-		createDir: function(dirPath) {
+		createDir: function (dirPath) {
 
-			if( typeof dirPath === 'object' ) {
-				dirPath.forEach(function(dirPath){
+			if (typeof dirPath === 'object' ) {
+				dirPath.forEach(function (dirPath){
 					this.createDir(dirPath);
 				}, this);
 				return true;
@@ -248,7 +247,7 @@ module.exports = function (opts) {
 				if (err)  {
 					console.error(err);
 					return false;
-				} else { return true };
+				} else { return true; }
 			});
 		},
 
