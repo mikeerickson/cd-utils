@@ -11,6 +11,7 @@ var msg    = require('gulp-messenger');
 
 require('mocha-sinon');
 
+// TODO: This block needs to be configured to use sinon so they will pass
 describe('test string routines', function () {
 
 	var result = '';
@@ -36,5 +37,3 @@ describe('test string routines', function () {
 		done();
 	});
 });
-
-
