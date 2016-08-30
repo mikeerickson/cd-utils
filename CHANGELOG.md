@@ -1,5 +1,7 @@
 ## Changelog
 
+- 0.14.0 Bug Fixes (ya I know you hate that ...)
+
 - 0.13.0
   - Added `kind-of` library (returned as `kindOf`)
     https://www.npmjs.com/package/kind-of
