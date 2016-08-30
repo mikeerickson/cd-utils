@@ -11,7 +11,7 @@
 var utils   = require('../index')();
 var expect  = require('chai').expect;
 var should  = require('chai').should();
-var assert  = require('assert');
+var assert  = require('chai').assert;
 var msg     = require('gulp-messenger');
 
 require('mocha-sinon');

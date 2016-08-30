@@ -1,6 +1,6 @@
 {
   "name": "cd-utils",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "CodeDungeon Utilities [WIP]",
   "main": "index.js",
   "reveal": true,
@@ -44,16 +44,15 @@
     "yargs": "5.0.0"
   },
   "devDependencies": {
-    "assert": "1.4.1",
     "babel-eslint": "^6.1.2",
     "chai": "3.5.0",
-    "eslint": "^3.4.0",
+    "eslint": "3.4.0",
     "gulp": "^3.9.1",
     "gulp-mocha": "3.0.1",
     "gulp-todo": "5.0.0",
-    "leasot": "^4.0.1",
+    "leasot": "4.0.1",
     "minimist": "1.2.0",
-    "mocha": "^3.0.2",
+    "mocha": "3.0.2",
     "mocha-sinon": "1.1.5",
     "mocha-unfunk-reporter": "0.4.0",
     "require-dir": "0.3.0",
