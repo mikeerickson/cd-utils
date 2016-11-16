@@ -34,7 +34,7 @@
     "gulp-notify": "2.2.0",
     "is_js": "0.8.0",
     "kind-of": "^3.0.4",
-    "lodash": "4.15.0",
+    "lodash": "4.17.2",
     "mkdirp": "0.5.1",
     "moment": "2.16.0",
     "node-notifier": "4.6.1",
