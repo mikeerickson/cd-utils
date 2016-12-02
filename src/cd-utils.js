@@ -1,8 +1,3 @@
-// CD-UTILS
-// =============================================================================
-
-// TODO: This needs updated documentation (in readme)
-
 /*global require*/
 
 var _         = require('lodash');
