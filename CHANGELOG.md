@@ -1,5 +1,8 @@
 ## Changelog
 
+- 0.17.0 Updated dependencies
+    - Updated -> node-notifier@^5
+    
 - 0.14.0 Bug Fixes (ya I know you hate that ...)
 
 - 0.13.0
