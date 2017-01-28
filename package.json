@@ -32,7 +32,7 @@
     "date-fns": "1.27.1",
     "defaults": "1.0.3",
     "gulp-messenger": "0.26.0",
-    "gulp-notify": "2.2.0",
+    "gulp-notify": "3.0.0",
     "is_js": "0.9.0",
     "kind-of": "3.1.0",
     "lodash": "4.17.4",
