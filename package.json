@@ -8,6 +8,7 @@
     "test-mocha": "mocha specs --reporter mocha-unfunk-reporter",
     "test:watch": "mocha specs --reporter mocha-unfunk-reporter --watch",
     "test": "mocha specs --reporter mocha-unfunk-reporter",
+    "lint": "./node_modules/.bin/eslint \"*.js\"",
     "todo": "leasot src/**/*.js specs/**/*.js || true"
   },
   "repository": {
@@ -37,7 +38,7 @@
     "lodash": "4.17.4",
     "mkdirp": "0.5.1",
     "moment": "2.17.1",
-    "node-notifier": "4.6.1",
+    "node-notifier": "5.0.2",
     "pluralize": "3.1.0",
     "sprintf-js": "1.0.3",
     "strman": "1.3.1",
