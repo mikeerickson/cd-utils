@@ -51,7 +51,7 @@
     "gulp": "^3.9.1",
     "gulp-mocha": "3.0.1",
     "gulp-todo": "5.2.0",
-    "leasot": "4.3.0",
+    "leasot": "4.3.1",
     "minimist": "1.2.0",
     "mocha": "3.2.0",
     "mocha-sinon": "1.1.6",
